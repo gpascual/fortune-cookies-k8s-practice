@@ -94,7 +94,7 @@ dependencies:
 Build the newly declared dependency and intall our chart in the k8s cluster
 ```shell
 helm dependency build helm-charts/fortune-cookies/
-helm install fortuneCookies helm-charts/fortune-cookies/
+helm install fortune-cookies helm-charts/fortune-cookies/
 ```
 
 Review available config values for that redis dependency and think about what you can tweak with them: https://artifacthub.io/packages/helm/bitnami/redis
@@ -103,7 +103,7 @@ Also visit Helm documentation about chart dependencies value overrides: https://
 
 You can upgrade the helm release by executing this command:
 ```shell
-helm upgrade fortuneCookies helm-charts/fortune-cookies/
+helm upgrade fortune-cookies helm-charts/fortune-cookies/
 ```
 
 Have a look to the k8s cluster with openlens or any similar tool, or with `kubectl`.
