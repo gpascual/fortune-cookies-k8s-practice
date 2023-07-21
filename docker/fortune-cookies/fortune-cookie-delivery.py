@@ -14,3 +14,13 @@ def hello_world():
         return r.lpop()
     except:
         return 'no cookie yet'
+
+@app.route("/healthz")
+def healthz():
+    try:
+        return r.lpop()
+    except:
+        return 'ok'
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)

@@ -21,4 +21,4 @@ COPY requirements.txt /var/www/app
 
 RUN pip install flask redis
 
-CMD ["flask", "--app", "fortune-cookie-delivery", "run", "-p", "80"]
+CMD python fortune-cookie-delivery.py
