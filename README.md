@@ -44,7 +44,7 @@ Kind (k3d too, I don't know if minikube does) has a mechanism to tell the local 
 ```shell
 docker build \
   --target fortune-cookies-takeaway-customer \
-  --tag fortune-cookie-takeaway:latest \
+  --tag fortune-cookies-takeaway:latest \
   -f docker/fortune-cookies/Dockerfile \
   docker/fortune-cookies/
 
@@ -52,7 +52,7 @@ kind load docker-image --name devel fortune-cookies-takeaway:latest
 
 docker build \
   --target fortune-cookies-delivery-customer \
-  --tag fortune-cookie-delivery:latest \
+  --tag fortune-cookies-delivery:latest \
   -f docker/fortune-cookies/Dockerfile \
   docker/fortune-cookies/
 
@@ -127,6 +127,13 @@ Is it possible to declare a pod with a replica set with something inside writing
 Very similar to the previous step but with the `fortune-cookies-takeaway` image.
 
 Are you able to show the logs of a cronjob with `kubectl` or a GUI tool.
+
+At this point, there should be a complete workflow where feature cookies are queued up on redis and customers are taking them away.
+Is the redis service properly configured?
+
+If you don't see any message or there are "Connection refused" messages in the takeaway cronjob logs, then it may be caused by redis not allowing external clients to connect. Try to check the `protected-mode` Redis configuration value.
+
+Normally, a redis server uses a configuration file in `/etc/redis.conf`. How this differs in the redis dependency chart?
 
 ## STEP 5 - Make an accessible endpoint that reads fortune cookies from Redis and returns them as response
 

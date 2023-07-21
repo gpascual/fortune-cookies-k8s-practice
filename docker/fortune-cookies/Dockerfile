@@ -2,11 +2,11 @@ FROM redis:alpine AS fortune-cookies-chef
 
 RUN apk update; apk add --no-cache fortune
 
-CMD ["redis-cli", "-h", "\$REDIS_HOST", "-p", "\$REDIS_PORT", "RPUSH", "fortune_cookies", "\$(fortune -a \$FORTUNE_CATEGORY)" ]
+CMD redis-cli -h $REDIS_HOST -p $REDIS_PORT RPUSH "fortune_cookies" "$(fortune $FORTUNE_CATEGORY)"
 
 FROM redis:alpine AS fortune-cookies-takeaway-customer
 
-CMD ["redis-cli", "-h", "\$REDIS_HOST", "-p", "\$REDIS_PORT", "LPOP", "fortune_cookies" ]
+CMD redis-cli -h $REDIS_HOST -p $REDIS_PORT LPOP "fortune_cookies"
 
 FROM python:3-alpine AS fortune-cookies-delivery-customer
 
