@@ -8,7 +8,7 @@
    1. [STEP 1 - Create a Helm chart](#step-1---create-a-helm-chart)
    2. [STEP 2 - Use a redis chart as dependency of our fortune-cookies chart](#step-2---use-a-redis-chart-as-dependency-of-our-fortune-cookies-chart)
    3. [STEP 3 - Set up a cronjob that reads fortune cookies from Redis and outputs it to stdout](#step-3---set-up-a-cronjob-that-reads-fortune-cookies-from-redis-and-outputs-them-to-stdout)
-   4. [STEP 4 - STEP 4 - Set up a cronjob that queues up fortune cookies to Redis](#step-4---set-up-a-cronjob-that-queues-up-fortune-cookies-to-redis)
+   4. [STEP 4 - Set up a cronjob that queues up fortune cookies to Redis](#step-4---set-up-a-cronjob-that-queues-up-fortune-cookies-to-redis)
    5. [STEP 5 - Make an accessible endpoint that reads fortune cookies from Redis and returns them as response](#step-5---make-an-accessible-endpoint-that-reads-fortune-cookies-from-redis-and-returns-them-as-response)
 
 ## Some initial setup
