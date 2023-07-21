@@ -1,1 +1,2 @@
 /.idea
+/helm-charts/**/charts/*.tgz
